@@ -1,0 +1,46 @@
+---
+title: work
+permalink: work.html
+layout: default
+---
+
+<div id="header-wrapper">
+  <a class="header" href="{{ '/' | relative_url }}">consortia</a><span class="nav-arrow">></span><a class="nav-chain" href="/work.html">Work</a>
+</div>
+
+<div id="content-wrapper">
+  <div class="content-100">
+    <div class="content">
+    {% assign loopindex = 0 %}
+    {% for post in site.categories.project %}
+    {% assign loopindex = loopindex | plus: 1 %}
+    {% assign rowfinder = loopindex | modulo: 3 %}
+    {% if rowfinder == 1 %}
+      <div class="row">
+      <div class="subcontent-33"><a href="{{ post.url | relative_url }}">
+        <div class="project-link">{{ post.title | escape }}</div>
+        <img src="{{ site.baseurl }}/assets/images/{{ post.image }}">
+      </a>
+      </div>
+    {% elsif rowfinder == 0 %}
+      <div class="subcontent-33"><a href="{{ post.url | relative_url }}">
+        <div class="project-link">{{ post.title | escape }}</div>
+        <img src="{{ site.baseurl }}/assets/images/{{ post.image }}">
+      </a>
+      </div>
+      </div>
+    {% else %}
+      <div class="subcontent-33"><a href="{{ post.url | relative_url }}">
+        <div class="project-link">{{ post.title | escape }}</div>
+        <img src="{{ site.baseurl }}/assets/images/{{ post.image }}">
+      </a>
+      </div>
+    {% endif %}
+{% endfor %}
+{% if rowfinder != 0 %}
+      </div>
+{% endif %}
+    </div>
+  </div>
+
+</div>

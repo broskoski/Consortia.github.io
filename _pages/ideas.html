@@ -1,0 +1,72 @@
+---
+title: ideas
+permalink: ideas.html
+layout: default
+---
+
+<div class="container-fluid">
+
+  <div class="row no-gutters">
+    <div class="col-sm-12">
+      <header class="header-down">
+          <div class="row no-gutters">
+            <div class="col-sm-4">
+              <a class="header-left" href="/office.html">Office</a>
+            </div>
+            <div class="col-sm-4">
+              <a class="header-center" href="{{ '/' | relative_url }}">consortia</a>
+            </div>
+            <div class="col-sm-4">
+              <a class="header-right" style="text-decoration: underline;" href="/ideas.html">Ideas</a>
+            </div>
+          </div>
+  <!--<div class="page-nav-office" style="float:right; margin-right: 15px;">
+      <a class="page-link-office" href="/office.html">Office</a>
+  </div>-->
+
+      </header>
+    </div>
+  </div>
+
+  <div class="row no-gutters">
+    <div class="col-sm-1">
+      <div class="position">
+        <div class="rotate">
+          <span class="page-heading">Latest</span>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-7">
+
+      <div class="row no-gutters">
+          <div class="page-content">
+            <div class="post-list">
+            {% for post in site.categories.blog %}
+              <li>
+              <a href="{{ post.url | relative_url }}">
+                <div class="col-sm-7" style="padding-left:0; margin-left:0;">
+                  <img src="{{ site.baseurl }}/assets/images/{{ post.image }}">
+                </div>
+                <div class="col-sm-5">
+                  <div class="post-link">{{ post.title | escape }}</div>
+                <div><div class="post-meta-small">by {{ post.author }}</div></div>
+              </div>
+              </a>
+              </li>
+              {% endfor %}
+            </div>
+          </div>
+      </div>
+    </div>
+    <div class="col-sm-1">
+      <div class="position">
+        <div class="rotate">
+          <span class="page-heading">Feed</span>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-3">
+
+    </div>
+
+</div>

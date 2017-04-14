@@ -1,0 +1,146 @@
+---
+layout: default
+---
+<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+<div class="container-fluid">
+
+  <div class="row no-gutters">
+    <div class="col-sm-12">
+      <header class="header-down">
+          <div class="row no-gutters">
+            <div class="col-sm-4">
+              <a class="header-left" href="/office.html">Office</a>
+            </div>
+            <div class="col-sm-4">
+              <a class="header-center" href="{{ '/' | relative_url }}">consortia</a>
+            </div>
+            <div class="col-sm-4">
+              <a class="header-right" style="text-decoration: underline;" href="/ideas.html">Ideas</a>
+            </div>
+          </div>
+      </header>
+    </div>
+  </div>
+
+ <div class="row no-gutters">
+
+   <div class="col-sm-1">
+      <div class="position">
+         <div class="rotate">
+           <span class="page-heading">Post</span>
+         </div>
+       </div>
+   </div>
+
+   <div class="col-sm-11">
+     <div class="row no-gutters">
+       <div class="col-sm-8" style="margin-left: -30px;">
+         <!--<time class="post-meta-small" style="float:right;" datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">{{ page.date | date: "%b %-d, %Y" }}</time>-->
+         {% if page.image %}
+         <img src="{{ site.baseurl }}/assets/images/{{ page.image }}" style="height: 500px; width: 100%; object-fit:cover; padding: 0;">
+         {% endif %}
+         <div class="header-caption">{{ page.caption }}</div>
+       </div>
+       <div class="col-sm-4" style="padding:0;">
+         <span class="post-title-large" itemprop="name headline">{{ page.title | escape }}</span>
+         {% if page.author %} <!--<p class="post-meta" itemprop="author" itemscope itemtype="http://schema.org/Person">-->
+         <div><div class="post-meta" itemprop="name">by {{ page.author }}</div></div>
+         {% endif %}
+       </div>
+     </div>
+   </div>
+
+ </div>
+
+  <div class="row no-gutters" style="height: 30px; padding-bottom: 30px; margin-right: 15px; margin-left: 15px;">
+    <div class="col-sm-12">
+    </div>
+  </div>
+
+  <div class="row no-gutters">
+
+    <div class="col-sm-1">
+       <div class="position">
+          <div class="rotate">
+            <span class="page-heading"></span>
+          </div>
+        </div>
+    </div>
+
+    <div class="col-sm-7">
+      <div class="post-content">
+        {{ content }}
+      </div>
+    </div>
+
+    <div class="col-sm-1">
+       <div class="position">
+          <div class="rotate">
+            <span class="page-heading">Notes</span>
+          </div>
+        </div>
+    </div>
+
+    <div class="col-sm-3">
+    </div>
+
+  </div>
+
+  <div class="row no-gutters" style="height: 30px; padding-bottom: 30px; margin-bottom: 30px; margin-right: 15px; margin-left: 15x;">
+    <div class="col-sm-12">
+    </div>
+  </div>
+
+ <div class="row no-gutters">
+    <div class="col-sm-1">
+       <div class="position">
+          <div class="rotate">
+            <span class="page-heading">Related</span>
+          </div>
+        </div>
+    </div>
+    <div class="col-sm-11">
+      <div class="page-content">
+        {% assign maxRelated = 5 %}
+        {% assign minCommonTags =  1 %}
+        {% assign maxRelatedCounter = 0 %}
+        {% for post in site.posts %}
+          {% assign sameTagCount = 0 %}
+          {% assign commonTags = '' %}
+
+          {% for tag in post.tags %}
+            {% if post.url != page.url %}
+              {% if page.tags contains tag %}
+                {% assign sameTagCount = sameTagCount | plus: 1 %}
+                {% capture tagmarkup %} <span class="label label-default">{{ tag }}</span> {% endcapture %}
+                {% assign commonTags = commonTags | append: tagmarkup %}
+              {% endif %}
+            {% endif %}
+          {% endfor %}
+
+          {% if sameTagCount >= minCommonTags %}
+          <div class="related-container">
+            <a href="{{ post.url | relative_url }}">
+              <img style="height: 150px; width: 100%; object-fit:cover;" src="{{ site.baseurl }}/assets/images/{{ post.image }}">
+              <div class="related-title">{{ post.title | escape }}</div>
+              <div class="post-meta-small" style="padding-top: 0;">by {{ post.author }}</div>
+            </a>
+          </div>
+            {% assign maxRelatedCounter = maxRelatedCounter | plus: 1 %}
+            {% if maxRelatedCounter >= maxRelated %}
+              {% break %}
+            {% endif %}
+          {% endif %}
+
+        {% endfor %}
+      {% if site.disqus.shortname %}
+        {% include disqus_comments.html %}
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+</div>
+
+</article>
