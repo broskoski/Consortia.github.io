@@ -227,7 +227,7 @@ PLATFORMS
 
 DEPENDENCIES
   arena
-  github-pages
+  github-pages (= 134)
   jekyll-feed (~> 0.6)
   jekyll-scholar
   tzinfo-data
