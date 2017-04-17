@@ -1,5 +1,5 @@
 GEM
-  remote: https://rubygems.org/
+  remote: http://rubygems.org/
   specs:
     activesupport (4.2.7)
       i18n (~> 0.7)
@@ -9,9 +9,6 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.5.1)
       public_suffix (~> 2.0, >= 2.0.2)
-    arena (0.1.0)
-      httparty
-      json
     bibtex-ruby (4.4.3)
       latex-decode (~> 0.0)
     citeproc (1.0.5)
@@ -85,11 +82,11 @@ GEM
       octokit (~> 4.0)
       public_suffix (~> 2.0)
       typhoeus (~> 0.7)
+    hash-joiner (0.0.7)
+      safe_yaml
     html-pipeline (2.5.0)
       activesupport (>= 2)
       nokogiri (>= 1.4)
-    httparty (0.14.0)
-      multi_xml (>= 0.5.2)
     i18n (0.8.1)
     jekyll (3.4.3)
       addressable (~> 2.4)
@@ -187,7 +184,6 @@ GEM
     mini_portile2 (2.1.0)
     minima (2.0.0)
     minitest (5.10.1)
-    multi_xml (0.6.0)
     multipart-post (2.0.0)
     namae (0.11.3)
     net-dns (0.8.0)
@@ -226,14 +222,14 @@ PLATFORMS
   x64-mingw32
 
 DEPENDENCIES
-  arena
   github-pages (= 134)
+  hash-joiner
   jekyll-feed (~> 0.6)
   jekyll-scholar
   tzinfo-data
 
 RUBY VERSION
-   ruby 2.2.2p95
+   ruby 2.2.1p85
 
 BUNDLED WITH
    1.14.6

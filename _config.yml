@@ -39,3 +39,6 @@ gems:
 exclude:
   - Gemfile
   - Gemfile.lock
+jekyll_get:
+  - data: chicago
+    json: 'http://api.are.na/v2/channels/chicago-tribune-tower-competition'

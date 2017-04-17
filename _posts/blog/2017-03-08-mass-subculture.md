@@ -8,6 +8,7 @@ tags: [Premium Bodies]
 image: test2.png
 caption: This is a caption
 notes: "{% bibliography --file mass-subculture %}"
+channel: chicago
 ---
 Since I’ve decided to start writing for the company blog more often, I went with Medium as the platform for the writing and distribution of the articles. It kind of seems like the obvious choice in this day and age.{% cite test --file mass-subculture %}
 

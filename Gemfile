@@ -1,4 +1,4 @@
-source "https://rubygems.org"
+source "http://rubygems.org"
 ruby RUBY_VERSION
 
 # Hello! This is where you manage which Jekyll version is used to run.
@@ -19,7 +19,7 @@ versions = JSON.parse(open('https://pages.github.com/versions.json').read)
 # uncomment the line below. To upgrade, run `bundle update github-pages`.
 gem "github-pages", versions['github-pages']
 gem 'jekyll-scholar'
-gem 'arena'
+gem "hash-joiner"
 
 # If you have any plugins, put them here!
 group :jekyll_plugins do
