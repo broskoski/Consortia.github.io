@@ -17,10 +17,8 @@ module Jekyll_Get
       end
       config.each do |d|
         begin
-          puts "hello we are here"
           target = site.data[d['data']]
           source = JSON.load(open(d['json']))
-          puts "source #{source}"
           if target
             HashJoiner.deep_merge target, source
           else
